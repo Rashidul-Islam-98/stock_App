@@ -1,4 +1,5 @@
 <h1>Stock Data</h1>
+<a href="{% url 'create_stock' %}">Insert New</a><br>
 <table>
     <thead>
         <tr>
@@ -9,6 +10,7 @@
             <th>Open</th>
             <th>Close</th>
             <th>Volume</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +23,10 @@
                 <td>{{ stock.open }}</td>
                 <td>{{ stock.close }}</td>
                 <td>{{ stock.volume }}</td>
+                <td>
+                    <a href="{% url 'edit_stock' stock.id %}">Edit</a>
+                    <a href="{% url 'delete_stock' stock.id %}">Delete</a>
+                </td>
             </tr>
         {% endfor %}
     </tbody>
